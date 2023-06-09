@@ -30,9 +30,9 @@ class DefaultController extends Controller
      *
      * @return JsonResponse
      */
-    public function handleRequestAction()
+    public function handleRequestAction(\Symfony\Component\HttpFoundation\Request $request)
     {
-        $contents = json_decode($this->getRequest()->getContent(), true);
+        $contents = json_decode($request->getContent(), true);
 
         $isContentValid = $this->isContentValid($contents);
         if ($isContentValid['success'] !== true) {
@@ -191,9 +191,9 @@ class DefaultController extends Controller
      *
      * @return JsonResponse
      */
-    public function generatePayloadAction()
+    public function generatePayloadAction(\Symfony\Component\HttpFoundation\Request $request)
     {
-        $providedPayload = json_decode($this->getRequest()->getContent(), true);
+        $providedPayload = json_decode($request->getContent(), true);
 
         $payload = $this->generateCompilerPayload($providedPayload);
         if (empty($payload)) {
