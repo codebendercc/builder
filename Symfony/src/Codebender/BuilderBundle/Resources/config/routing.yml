@@ -1,15 +1,13 @@
 CodebenderBuilderBundle_status_check:
-    pattern:  /status
+    path:  /status
     defaults: { _controller: CodebenderBuilderBundle:Default:status }
 
 CodebenderBuilderBundle_handle_request:
-    pattern:    /{authKey}/{version}/
+    path:    /{authKey}/{version}/
     defaults: { _controller: CodebenderBuilderBundle:Default:handleRequest }
-    requirements:
-      _method: POST
+    methods: [POST]
 
 CodebenderBuilderBundle_ganerate_compiler_payload:
-    pattern:    /{authKey}/{version}/payload
+    path:    /{authKey}/{version}/payload
     defaults: { _controller: CodebenderBuilderBundle:Default:generatePayload }
-    requirements:
-      _method: POST
+    methods: [POST]

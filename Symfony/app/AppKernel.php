@@ -28,8 +28,13 @@ class AppKernel extends Kernel
         return $bundles;
     }
 
+    public function getRootDir()
+    {
+       return __DIR__;
+    }
+    
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
+        $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
     }
 }
